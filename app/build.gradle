@@ -1,15 +1,19 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp' version '1.6.21-1.0.6' // Depends on your kotlin version
 }
 
 android {
-    compileSdk 32
+    compileSdk rootProject.COMPILE_SDK
 
     defaultConfig {
         applicationId "com.jxareas.stonks"
-        minSdk 21
-        targetSdk 32
+        minSdk rootProject.MIN_SDK
+        targetSdk rootProject.TARGET_SDK
         versionCode 1
         versionName "1.0"
 
@@ -59,4 +63,42 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    // OpenCSV
+    implementation "com.opencsv:opencsv:$open_csv"
+
+    // Compose dependencies
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "com.google.accompanist:accompanist-flowlayout:$flow_layout"
+    implementation 'androidx.paging:paging-compose:1.0.0-alpha14'
+    implementation "androidx.activity:activity-compose:1.6.0-alpha01"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
+
+    // Compose Nav Destinations
+    implementation 'io.github.raamcosta.compose-destinations:core:1.1.2-beta'
+    ksp 'io.github.raamcosta.compose-destinations:ksp:1.1.2-beta'
+
+    // Coil
+    implementation "io.coil-kt:coil-compose:$coil_compose"
+
+    //Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:$dagger_hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_viewmodel"
+    kapt "androidx.hilt:hilt-compiler:$hilt_compiler"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_compose"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$moshi_converter"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room"
+    kapt "androidx.room:room-compiler:$room"
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room"
 }
