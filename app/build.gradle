@@ -7,6 +7,17 @@ plugins {
     id 'com.google.devtools.ksp' version '1.6.10-1.0.2' // Depends on the Kotlin Version
 }
 
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
+}
+
 android {
     compileSdk rootProject.COMPILE_SDK
 
@@ -86,7 +97,6 @@ dependencies {
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:$dagger_hilt"
     kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_viewmodel"
     kapt "androidx.hilt:hilt-compiler:$hilt_compiler"
     implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_compose"
 
