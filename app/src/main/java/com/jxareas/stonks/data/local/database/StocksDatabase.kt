@@ -6,7 +6,7 @@ import com.jxareas.stonks.data.local.dao.CompanyListingDao
 import com.jxareas.stonks.data.local.entity.CompanyListingEntity
 
 @Database(entities = [CompanyListingEntity::class],
-    version = StocksDatabase.DATABASE_VERSION)
+    version = StocksDatabase.DATABASE_VERSION, exportSchema = false)
 abstract class StocksDatabase : RoomDatabase() {
 
     abstract val companyListingDao: CompanyListingDao

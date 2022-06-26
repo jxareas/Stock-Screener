@@ -1,12 +1,11 @@
 package com.jxareas.stonks.data.repository
 
-import com.jxareas.stonks.data.csv.CompanyListingsParser
 import com.jxareas.stonks.data.csv.CsvParser
 import com.jxareas.stonks.data.local.database.StocksDatabase
 import com.jxareas.stonks.data.local.entity.CompanyListingEntity
 import com.jxareas.stonks.data.mapper.toCompanyListing
 import com.jxareas.stonks.data.mapper.toCompanyListingEntity
-import com.jxareas.stonks.data.remote.StocksService
+import com.jxareas.stonks.data.remote.service.StocksService
 import com.jxareas.stonks.domain.model.CompanyListing
 import com.jxareas.stonks.domain.repository.StocksRepository
 import com.jxareas.stonks.utils.Resource
